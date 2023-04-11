@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JavaScript Button!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+
+</head>
+<p id="change">This is a p element that is being manipulated by the button below it.</p>
+<button type="button" id="tChange">Press the button.</button>
+
+
+</html>
+<script>
+//a function that is initialized as soon as the page loads see line 30
+function start() {
+  //a variable that gets the button on line 11
+  var button = document.getElementById('tChange');
+  //a command that says when button is clicked run the function 'change'
+  button.onclick = change;
+}
+//a function that changes style elements
+function change(){
+  //manipulates specific parts of the style
+  document.getElementById('change').style.fontSize='40px';
+  document.getElementById('change').style.font='times'
+  document.getElementById('change').style.color='red';
+}
+//a command that says when the window loads, run the function 'start'
+    window.onload = start;
+</script>
