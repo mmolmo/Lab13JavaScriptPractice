@@ -1,0 +1,49 @@
+.grid {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 8px;
+}
+
+.grid-item {
+  background-color: rgb(73, 90, 104);
+  border: 3px solid aliceblue;
+}
+
+p {
+  text-align: center;
+  font-family: Garamond;
+  font-size: 24px;
+  color: aliceblue;
+}
+
+#buttontrigger {
+  color: black;
+}
+
+.content {
+  background-color: aliceblue;
+  padding: 16px;
+}
+
+button {
+  background-color: rgb(40, 164, 59);
+  border-radius: 8px;
+  border: none;
+  padding: 16px;
+  font-family: Garamond;
+  font-size: 24px;
+  color: aliceblue;
+  transition: all 0.5s;
+  margin-left: 45vw;
+  margin-right: 45vw;
+}
+
+#centeredbutton {
+  padding: 16px;
+}
+
+button:hover {
+  transition: all 0.5s;
+  background-color: rgb(232, 10, 10);
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */

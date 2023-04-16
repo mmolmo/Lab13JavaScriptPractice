@@ -1,0 +1,10 @@
+.grid {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 8px;
+}
+
+.grid-item {
+  background-color: rgb(73, 90, 104);
+  border: 3px solid aliceblue;
+}/*# sourceMappingURL=grid.css.map */

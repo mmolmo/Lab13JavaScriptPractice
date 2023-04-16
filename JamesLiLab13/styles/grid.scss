@@ -1,0 +1,12 @@
+@import 'variables';
+
+//display properties for grid and grid-item respectively
+.grid{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: calc($padding / 2);
+}
+.grid-item{
+    background-color: $colordiff;
+    border: 3px solid $color;
+}

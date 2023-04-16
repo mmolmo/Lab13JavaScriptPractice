@@ -1,0 +1,42 @@
+//imports the scss documents variables for styling and grid
+@import 'variables';
+@import 'grid';
+
+//styling for paragraph elements and classes related to it
+p{
+    text-align: center;
+    font-family: $normalfontfamily;
+    font-size: $normalfontsize;
+    color:$color;
+}
+#buttontrigger{
+    color:black;
+}
+//styling the bg class in behind the main paragraph element above the grid.
+.content{
+    background-color: $color;
+    padding: $padding;
+}
+//styling for button and related classes
+button{
+    background-color: rgb(40, 164, 59);
+    border-radius: 8px;
+    border: none;
+    padding: $padding;
+    font-family: $normalfontfamily;
+    font-size: $normalfontsize;
+    color: $color;
+    transition: all 0.5s;
+    //centers button horizontally
+    margin-left: 45vw;
+    margin-right: 45vw;
+}
+#centeredbutton{
+   padding: $padding;
+}
+//change the color of the button from green to red on hover, makes the text bold
+button:hover{
+    transition: all 0.5s;
+    background-color: rgb(232, 10, 10);
+    font-weight: bold;
+}
