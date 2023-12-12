@@ -26,6 +26,9 @@ p {
 }
 
 button {
+  display: flex;
+  position: absolute;
+  z-index: 10;
   background-color: rgb(40, 164, 59);
   border-radius: 8px;
   border: none;
@@ -36,6 +39,10 @@ button {
   transition: all 0.5s;
   margin-left: 45vw;
   margin-right: 45vw;
+}
+
+#wrapper {
+  position: relative;
 }
 
 #centeredbutton {

@@ -19,6 +19,7 @@ p{
 }
 //styling for button and related classes
 button{
+    display: flex;
     background-color: rgb(40, 164, 59);
     border-radius: 8px;
     border: none;
@@ -30,6 +31,11 @@ button{
     //centers button horizontally
     margin-left: 45vw;
     margin-right: 45vw;
+    
+}
+
+#wrapper{
+    position: relative;
 }
 #centeredbutton{
    padding: $padding;

@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: auto;
     grid-gap: calc($padding / 2);
+    overflow: hidden;
 }
 .grid-item{
     background-color: $colordiff;
