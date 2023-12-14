@@ -43,9 +43,9 @@ function displayGrid(){
   //this is just to ease the animation and set the display to block.
   gridDiv.style.transition = 'all 1s ease-in-out';
    
-  var gridArray = document.getElementsByClassName("grid-item");
-  var gridArrayAsArray = Array.from(gridArray); 
-  gridArrayAsArray.forEach(function (el, index) {
+  var gridItems = document.getElementsByClassName("grid-item");
+  var gridArray = Array.from(gridItems); 
+  gridArray.forEach(function (el, index) {
     setTimeout(function () {
     console.log(el);
     el.style.opacity = 1;
@@ -55,67 +55,50 @@ function displayGrid(){
   });
 }
 function hideGrid(){
-  var gridArray = document.getElementsByClassName("grid-item");
-  var gridArrayAsArray = Array.from(gridArray); 
+  var gridItems = document.getElementsByClassName("grid-item");
+  var gridArray = Array.from(gridItems); 
   //iterate each backwards
-  let animationFinished = new Promise.resolve();
-
+  
+/*
   var promise = Promise.resolve();
-array.forEach(function (el) {
-  promise = promise.then(function () {
-    console.log(el);
-    return new Promise(function (resolve) {
-      setTimeout(resolve, interval);
-    });
-  });
-});
 
 promise.then(function () {
   console.log('Loop finished.');
+});*/
+
+async function gridItemAnimation() {
+  let animationFinished = new Promise(function(resolve, reject) {
+    // Store promises in an array
+    let animationPromises = []; 
+    //loop each animation fade out
+    for (let i = gridArray.length - 1; i >= 0; i--) {
+      let promise = new Promise(function(resolve) {
+        //animates it out
+        setTimeout(function() {
+          console.log(gridArray[i]);
+          gridArray[i].style.opacity = 0;
+          gridArray[i].style.maxHeight = "0px";
+          gridArray[i].style.transition = 'all 1s ease-in-out';
+          resolve(); // Resolve this individual promise after each animation
+        }, (gridArray.length - 1 - i) * 100);
+      });
+      animationPromises.push(promise); // Add each promise to the array
+    }
+    // Resolve the main promise after all animations are complete
+    Promise.all(animationPromises).then(() => resolve("done"));
+  });
+  await animationFinished;
+}
+
+gridItemAnimation().then(function() {
+  // Wait for gridItemAnimation to finish before executing this code
+  gridDiv = document.querySelector('.grid');
+  setTimeout(function() {
+    gridDiv.style.opacity = 0;
+    gridDiv.style.maxHeight = "0px";
+    gridDiv.style.transition = 'all 1s ease-in-out';
+  }, 100);
 });
-
-async function gridItemAnimation(){ 
-  await promiseAction(item);
-  for (let i = gridArrayAsArray.length - 1; i >= 0; i--) {
-    setTimeout(function () {
-      console.log(gridArrayAsArray[i]);
-      gridArrayAsArray[i].style.opacity = 0;
-      gridArrayAsArray[i].style.maxHeight = "0px";
-      gridArrayAsArray[i].style.transition = 'all 1s ease-in-out';
-    }, (gridArrayAsArray.length - 1 - i) * 500);
-    animationFinished();
-  }};
-  
-  gridItemAnimation();
-
-   //calls the gridDiv class as defined earlier.
-  animationFinished.then(function(){
-    gridDiv= document.querySelector('.grid');
-    //sets the opacity of the grid to 1 over the course of 100 milliseconds
-    setTimeout(function() {
-      gridDiv.style.opacity = 0; 
-      //this is just to ease the animation and set the display
-      gridDiv.style.maxHeight = "0px";
-      gridDiv.style.transition = 'all 1s ease-in-out';
-    }, 300);}
-  );
-   
-  /*
-  gridArrayAsArray.forEach(function (el, index) {
-    setTimeout(function () {
-    console.log(el);
-    el.style.opacity = 0;
-    el.style.maxHeight = "0px";
-    el.style.transition = 'all 1s ease-in-out';
-    }, index * 100);
-  });*/
-
-  /*
-  for (let i = 0; i<gridArray.length;i++){
-    gridArray[i].style.opacity = 0;
-    gridArray[i].style.maxHeight = "0px";
-    gridArray[i].style.transition = 'all 1s ease-in-out';
-  }*/
   
 }
 //a command that says when the window loads, run the function 'start'
