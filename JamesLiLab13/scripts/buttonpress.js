@@ -67,12 +67,12 @@ promise.then(function () {
 });*/
 
 async function gridItemAnimation() {
-  let animationFinished = new Promise(function(resolve, reject) {
+  let animationFinished = new Promise((resolve, reject) => {
     // Store promises in an array
     let animationPromises = []; 
     //loop each animation fade out
     for (let i = gridArray.length - 1; i >= 0; i--) {
-      let promise = new Promise(function(resolve) {
+      let promise = new Promise((resolve) => {
         //animates it out
         setTimeout(function() {
           console.log(gridArray[i]);

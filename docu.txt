@@ -1,0 +1,15 @@
+html elements used:
+
+
+scss:
+@import
+variables
+
+js:
+getElementById
+.style
+getElementsByClassName(returns a collection)
+querySelector
+
+uses maxheight px  and transition style properties to create an animation.
+
